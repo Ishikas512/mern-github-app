@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import passport from "passport";
 import session from "express-session";
 
+
 import "./passport/github.auth.js";
 
 import userRoutes from "./routes/user.route.js";
@@ -33,6 +34,6 @@ app.use("/api/users",userRoutes);
 app.use("/api/explore",exploreRoutes);
 
 app.listen(5000,()=> {
-    console.log("Server started on http://localhost:5000");
+    console.log(`Server started on http://localhost:5000`);
     connectMongoDB();
 });
