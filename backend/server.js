@@ -17,7 +17,7 @@ import connectMongoDB from "./db/connectMongoDB.js";
 dotenv.config();
 
 const app=express();
-app.use('/', express.static(path.join(__dirname, '/frontend/dist')))
+
 
 app.use(session({ secret: "keyboard cat", resave: false, saveUninitialized: false }));
 // Initialize Passport!  Also use passport.session() middleware, to support
@@ -36,7 +36,7 @@ app.use("/api/users",userRoutes);
 app.use("/api/explore",exploreRoutes);
 
 const PORT = process.env.PORT || 5000;
-
+app.use('/', express.static(path.join(__dirname, '/frontend/dist')))
 app.listen(PORT,()=> {
     console.log("Server started on http://localhost:5000");
     connectMongoDB();
