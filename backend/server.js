@@ -36,12 +36,12 @@ app.use("/api/users",userRoutes);
 app.use("/api/explore",exploreRoutes);
 
 const PORT = process.env.PORT || 5000;
-app.use('/', express.static(path.join(__dirname, '/frontend/dist')))
+app.use( express.static(path.join(__dirname, '/frontend/dist')))
 
 app.get("*", (_req, res)=>{
     res.sendFile(path.join(__dirname, 'frontend', 'dist', "index.html"))
 })
 app.listen(PORT,()=> {
-    console.log("Server started on http://localhost:5000");
+    console.log(`Server started on port ${PORT}`);
     connectMongoDB();
 });
