@@ -1,8 +1,9 @@
 import User from "../models/user.model.js";
 
 export const getUserProfileAndRepos = async (req, res) => {
-
-    const {username}=req.params;
+    console.log(req.params);
+    const username=req.params.username || "Ishikas512" ;
+    
     try {
         const userRes=await fetch(`https://api.github.com/users/${username}`);
 			const userProfile=await userRes.json();
