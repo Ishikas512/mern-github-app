@@ -31,6 +31,8 @@ app.use(passport.session());
      res.send("Server is ready");
  });
 
+
+
 app.use("/api/auth",authRoutes);
 app.use("/api/users",userRoutes);
 app.use("/api/explore",exploreRoutes);
